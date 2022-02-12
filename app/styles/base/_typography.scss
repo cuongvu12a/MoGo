@@ -2,3 +2,17 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+.text {
+  color: $text-color;
+  line-height: 1.4;
+  font-family: $secondary-font;
+  font-size: 1.5rem;
+  font-style: italic;
+  cursor: pointer;
+}
+.text--light {
+  font-weight: 300;
+}
+.text--normal {
+  font-style: normal;
+}

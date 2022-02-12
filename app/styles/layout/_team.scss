@@ -1,0 +1,56 @@
+.team {
+  padding: 10rem 0;
+  background: white;
+  &__list {
+    @include flex-box(stretch, space-between);
+  }
+  &__item{
+    width: calc(33.33% - 2rem);
+  }
+  &__img {
+    width: 100%;
+    aspect-ratio: 3/4;
+  }
+  &-social{
+    @include flex-box;
+  }
+  &-social__item:not(:first-child){
+    border-left: 1px solid $primary-color;
+  }
+  &-social__link{
+    @include flex-box;
+    @include size(6rem);
+    background: $secondary-color;
+    color: $primary-color;
+    font-size: 3rem;
+    transition: all .2s linear;
+    &:hover{
+      background: $primary-color;
+      color: white;
+    }
+  }
+  &__info {
+    padding: 3rem 1.5rem;
+    text-align: center;
+  }
+  &__name {
+    @include text-clamp(2);
+    height: 3.8rem;
+    margin-bottom: .5rem;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  @include max-width(1023px){
+    padding: 5rem 0;
+    &__list{
+      @include touch-slider(60%);
+    }
+  }
+  @include max-width(767px){
+    &__list{
+      @include touch-slider;
+    }
+  }
+}
+@include hover-effect(".team__main",".team__content");

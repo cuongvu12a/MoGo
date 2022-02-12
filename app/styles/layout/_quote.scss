@@ -1,0 +1,104 @@
+.quote {
+  background: $gray-color;
+  padding: 6.5rem 0;
+  &-arrow {
+    padding: 1rem 2rem;
+    color: $gray-dark-color;
+    font-size: 3rem;
+    cursor: pointer;
+  }
+  &__content {
+    @include flex-box();
+    display: flex !important;
+    padding-left: 5.5rem;
+    padding-right: 5.5rem;
+    outline: none;
+  }
+  &__icon{
+    @include flex-box();
+    @include size(15rem);
+    margin-right: 6rem;
+    border: 3px solid $third-color;
+  }
+  &__img {
+    @include size(6rem);
+  }
+  &__avt{
+    @include size(22rem);
+    margin-right: 1rem;
+    border-radius: 50%;
+  }
+  &__info{
+    flex: 1;
+  }
+  &__desc{
+    @include text-clamp(3);
+    margin-bottom: 2.5rem;
+    color: $text-color;
+    line-height: 1.6;
+    font-size: 2.5rem;
+    font-weight: 300;
+    font-style: italic;
+    font-family: $secondary-font;
+  }
+  &__author{
+    position: relative;
+    padding-left: 7rem;
+    font-size: 2.4rem;
+    font-family: $third-font;
+  }
+  &__author::before{
+    content: "";
+    @include size(6rem,4px);
+    @include absolute-center('y','left');
+    background: $primary-color;
+  }
+  @include max-width(767px){
+    &-arrow{
+      display: none;
+    }
+    &__content{
+      padding: 0; 
+      flex-direction: column;
+    }
+    &__icon{
+      @include size(10rem);
+      margin-right: 0;
+    }
+    &__avt{
+      @include size(12rem);
+      margin-right: 1rem;
+    }
+    &__img{
+      @include size(4rem);
+    }
+    &__info{
+      margin-top: 3rem;
+    }
+    &__desc{
+      display: block;
+      font-size: 1.6rem;
+    }
+    &__author{
+      font-size: 2rem;
+    }
+  }
+  & .slick-arrow{
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 0;
+    color: $gray-dark-color;
+    font-size: 3rem;
+    cursor: pointer;
+    z-index: 10;
+  }
+  & .slick-prev{
+    @include absolute-center(y,left);
+  }
+  & .slick-next{
+    @include absolute-center(y,right);
+  }
+}
+.quote--author{
+  background: white;
+}

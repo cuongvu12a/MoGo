@@ -1,0 +1,119 @@
+mixin menu-link(title = "", href = "/")
+  li.header-menu__item 
+    if !attributes.class
+      a.header-menu__link(href= href)= title
+    else
+      a(class != attributes.class href= href)= title
+        block
+
+mixin header-bottom-item(number = "", title = "")
+  .header-bottom__item(class != attributes.class) 
+    span.header-bottom__number= number
+    span.header-bottom__text= title
+  //- .header-bottom__item(class = attributes.class) 
+
+mixin block-box(caption = "", title = "", desc)
+  .block-box
+    h3.block-box__caption= caption 
+    h2.block-box__heading= title 
+    if desc 
+      p.block-box__description= desc
+
+mixin about-item(img = "", title = "", iconClass = "fa fa-users", alt = "")
+  .about__item 
+    img.about__image(src= img)
+    .about__content 
+      i.about__icon(class != iconClass) 
+      span.about__title= title
+
+mixin number-item(count = "", text = "")
+  .number-item 
+    .number-item__count= count
+    .number-item__text= text
+
+mixin service-item(img = "", title = "", desc = "")
+  .service-item 
+    img.service-item__icon(src= img)
+    .service-item__info 
+      h3.service-item__title= title 
+      p.service-item__desc= desc
+
+mixin wedo-item(src = "", title = "", content = "")
+  .wedo-item(class != attributes.class) 
+    .wedo-item__header 
+      img(src= src).wedo-item__icon
+      h3.wedo-item__title= title 
+      i.fal.fa-angle-down.wedo-item__arrow 
+    .wedo-item__content
+      .wedo-item__text= content
+
+mixin team-social(facebook = "#", twitter = "#", pinterest = "#", instagram = "#")
+  ul.team-social 
+    li.team-social__item 
+      a.team-social__link(href= facebook)
+        i.fab.fa-facebook-f
+    li.team-social__item 
+      a.team-social__link(href= twitter)
+        i.fab.fa-twitter
+    li.team-social__item 
+      a.team-social__link(href= pinterest)
+        i.fab.fa-pinterest
+    li.team-social__item 
+      a.team-social__link(href= instagram)
+        i.fab.fa-instagram
+
+mixin team-item(src = "", name = "", position = "", href = "")
+  .team__item 
+    .team__main 
+      img(src= src).team__img
+      .team__content 
+        if block 
+          block 
+        else 
+          +team-social()
+    .team__info
+      h3.team__name= name
+      span.team__position= position
+mixin work-item(src = "", title = "Creatively designed", desc = "Lorem ipsum dolor sit." , icon = "./images/img-work-icon.png")
+  .work__item(class != attributes.class)
+    img.work__img(src= src)
+    .work__content 
+      img.work__icon(src= icon)
+      h3.work__title= title
+      span.work__desc.text.text--light= desc
+
+mixin people-item(src = "", name = "Matthew Dix", job = "Graphic design", desc = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi incidunt quos labore eum deserunt, nobis cum possimus voluptatibus saepe explicabo praesentium maiores nam suscipit magni nulla sint laboriosam eveniet dolores!")
+  li.people__item 
+    img.people__avt(src= src)
+    .people__info 
+      h3.people__name= name 
+      span.people__job.text.text--light= job
+      p.people__desc.text= desc
+
+mixin story-item(src = "", day = "", month = "", title = "", desc = "", eye = "", comment = "" )
+  li.story__item 
+    .story__media 
+      img.story__img(src= src)
+      .story__date 
+        span.story__day= day 
+        span.story__month.text.text--light= month
+    h3.story__title= title 
+    .story__desc
+      span.text.text--light= desc 
+    .story-meta 
+      .story-meta__item 
+        i.fa.fa-eye.story-meta__icon 
+        span.story-meta__number= eye 
+      .story-meta__item 
+        i.fa.fa-comment.story-meta__icon 
+        span.story-meta__number.text= comment
+mixin quote-item(type = true, src = '../../images/img-quote.png', desc = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem mollitia debitis eius, atque qui iste sapiente omnis reiciendis, rerum quas numquam quasi est ratione quisquam reprehenderit maiores error cum dolor!", author = "Jon Doe")
+  .quote__content 
+        if type == true
+          .quote__icon 
+            img(src= src).quote__img
+        else 
+          img(src= src).quote__avt
+        .quote__info 
+          p.quote__desc= desc
+          span.quote__author= author

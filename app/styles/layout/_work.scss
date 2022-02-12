@@ -1,0 +1,121 @@
+.work {
+  padding-top: 10rem;
+  &__list {
+    @include flex-box(stretch);
+    height: 78rem;
+  }
+  &__item {
+    --height-item: 50%;
+    height: var(--height-item);
+    &--full {
+      height: calc(2 * var(--height-item));
+    }
+  }
+  &__img {
+    @include size();
+  }
+  &__column {
+    width: 25%;
+  }
+  &__content {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+    color: white;
+  }
+  &__icon {
+    margin-bottom: 1rem;
+    width: 3rem;
+    cursor: pointer;
+  }
+  &__title {
+    @include text-clamp(2);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  &__desc {
+    @include text-clamp(3);
+    color: white;
+    line-height: 1.4;
+  }
+  @include max-width(1599px) {
+    &__list {
+      height: 60rem;
+    }
+  }
+  @include max-width(1279px) {
+    &__list {
+      flex-wrap: wrap;
+    }
+    &__column {
+      width: 50%;
+    }
+    &__item {
+      --height-item: 42rem;
+    }
+  }
+  @include max-width(1023px) {
+    padding-top: 8rem;
+    &__item {
+      --height-item: 30rem;
+    }
+  }
+  @include max-width(767px) {
+    padding-top: 5rem;
+    &__column {
+      width: 100%;
+    }
+    &__item,
+    &__item--full {
+      height: auto;
+    }
+  }
+  @include min-width(768px) {
+    &__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(2, 20rem);
+      grid-template-areas:
+        "h1 h3 h5 h6"
+        "h2 h4 h5 h7";
+    }
+    &__item {
+      height: 100% !important;
+      &:nth-child(1) {
+        grid-area: h1;
+      }
+      &:nth-child(2) {
+        grid-area: h2;
+      }
+      &:nth-child(3) {
+        grid-area: h3;
+      }
+      &:nth-child(4) {
+        grid-area: h4;
+      }
+      &:nth-child(5) {
+        grid-area: h5;
+      }
+      &:nth-child(6) {
+        grid-area: h6;
+      }
+      &:nth-child(7) {
+        grid-area: h7;
+      }
+    }
+  }
+  @include min-width(1024px) {
+    &__grid {
+      grid-template-rows: repeat(2, 30rem);
+    }
+  }
+  @include min-width(1600px) {
+    &__grid {
+      grid-template-rows: repeat(2, 39rem);
+    }
+  }
+  @include hover-effect(".work__item", ".work__content", "false");
+}

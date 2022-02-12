@@ -1,0 +1,120 @@
+.story {
+  padding: 10rem 0;
+  background: white;
+  &__list {
+    @include flex-box(stretch, space-between);
+  }
+  &__item {
+    width: calc(33.33% - 2rem);
+  }
+  &__media {
+    position: relative;
+    margin-bottom: 2rem;
+    height: 0;
+    padding-top: 56.25%;
+  }
+  &__img {
+    @include size;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  &__date {
+    @include flex-box(center, center, column);
+    position: absolute;
+    left: -1rem;
+    bottom: 1rem;
+    padding: 1.5rem 2rem;
+    background: $third-color;
+    color: white;
+  }
+  &__day {
+    font-weight: bold;
+    font-size: 3rem;
+  }
+  &__month {
+    color: white;
+  }
+  &__title {
+    margin-bottom: 2rem;
+    font-weight: 500;
+    line-height: 1.4;
+    text-transform: uppercase;
+  }
+  &__desc {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid $border-color;
+    font-style: normal;
+  }
+  &__desc span {
+    @include text-clamp(3);
+  }
+  &-meta {
+    @include flex-box(center, flex-start);
+  }
+  &-meta__item {
+    margin-right: 2rem;
+  }
+  &-meta__icon {
+    margin-right: 0.5rem;
+    color: $third-color;
+    cursor: pointer;
+  }
+  &-meta__number {
+    cursor: default;
+  }
+  @include max-width(1023px) {
+    padding: 5rem 0;
+    &__date {
+      padding: 1rem 1.5rem;
+    }
+    &__title {
+      font-size: 1.2rem;
+    }
+    &__desc {
+      font-size: 1.3rem;
+    }
+  }
+  @include max-width(767px) {
+    &__list {
+      display: block;
+    }
+    &__item {
+      width: 100%;
+    }
+    &__item:not(:last-child) {
+      margin-bottom: 5rem;
+    }
+    &__date {
+      bottom: 0.5rem;
+      left: -0.5rem;
+    }
+  }
+}
+.map{
+  padding: 6rem 0;
+  background: linear-gradient(to bottom, rgba(white, 0.8), rgba(white, 0.8)),
+  url("../images/img-people-bg.png") no-repeat center/cover;
+  &__content{
+    @include flex-box(center,center,column);
+  }
+  &__icon{
+    width: 2rem;
+  }
+  &__heading{
+    position: relative;
+    margin-top: 1.5rem;
+    padding-bottom: 2rem;
+    color: $primary-color;
+    font-size: 2.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &__heading:after{
+    content: "";
+    @include absolute-center(x,bottom);
+    @include size(6.5rem,.4rem);
+    background: currentColor;
+  }
+}

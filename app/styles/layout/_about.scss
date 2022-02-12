@@ -1,0 +1,57 @@
+.about {
+  padding-top: 9.3rem;
+  padding-bottom: 11rem;
+  background: white;
+  //Flexbox
+  // &__list {
+  //   display: flex;
+  //   flex-wrap: wrap;
+  //   margin-left: -3rem;
+  // }
+  
+  // &__item {
+  //   margin-left: 3rem;
+  //   width: calc(33.33% - 3rem);
+  // }
+  //   //CSS Grid
+  &__list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 3rem;
+  }
+  &__item {
+    & img{
+      aspect-ratio: 16 / 9 ;
+    }
+  }
+  &__content {
+    flex-direction: column;
+    padding: 2rem;
+    text-align: center;
+    color: white;
+  }
+  &__icon {
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  &__title {
+    @include text-clamp(2);
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  @include max-width(767px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    //Flexbox
+    // &__item {
+    //   width: 100%;
+    // }
+    // CSS Grid
+    &__list {
+      @include touch-slider();
+    }
+  }
+}
+@include hover-effect(".about__item ",".about__content ")

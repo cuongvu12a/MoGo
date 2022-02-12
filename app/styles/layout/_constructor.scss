@@ -1,0 +1,56 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: $container + 30px;
+  padding: 0 15px;
+}
+
+.block-box {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 96rem;
+  text-align: center;
+  &__caption {
+    margin-bottom: 2rem;
+    font-size: 2.4rem;
+    font-family: $third-font;
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+  &__heading {
+    position: relative;
+    margin-bottom: 3.5rem;
+    padding-bottom: 3.5rem;
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    &::after {
+      content: "";
+      @include absolute-center(x, bottom);
+      @include size(6.5rem,.4rem);
+      background: $primary-color;
+    }
+  }
+  &__description {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    font-family: $secondary-font;
+    color: $text-color;
+    margin-bottom: 10rem;
+  }
+  @include max-width(767px){
+    &__caption{
+      font-size: 2rem;
+    }
+    &__heading{
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      font-size: 2.5rem;
+    }
+    &__desc{
+      margin-bottom: 4rem;
+      font-size: 1.4rem;
+    }
+  }
+}
